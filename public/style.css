@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(45deg, teal 50%, wheat 50%);
+}
+.wrapper {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.form {
+  width: 40%;
+
+  margin: 4rem auto;
+}
+
+#main {
+  margin: auto;
+  width: 40%;
+}
+.item {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+.item i {
+  font-size: 1.5rem;
+  color: rgb(148, 64, 64);
+  text-shadow: -2px 2px 0 #000;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}

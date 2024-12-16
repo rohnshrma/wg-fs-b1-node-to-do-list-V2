@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Defines the document as an HTML5 document -->
+<html lang="en">
+<!-- Declares the HTML language as English -->
+
+<head>
+    <!-- The head section contains metadata and links to external resources -->
+    <meta charset="UTF-8">
+    <!-- Specifies the character encoding as UTF-8 to support a wide range of characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures the website is responsive and adjusts properly on different screen sizes -->
+
+    <title>To Do List : <%= title %>
+    </title>
+    <!-- Sets the title of the page, with a dynamic value passed using EJS templating -->
+
+    <!-- fa css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <!-- Links to Font Awesome's CSS for using icons -->
+
+    <!-- bs css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <!-- Links to Bootstrap 4 CSS for pre-styled components and responsive design -->
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- Links to a custom CSS file for additional styling -->
+</head>
+
+<body>
+    <!-- The body section contains the main content of the page -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <!-- Creates a dark-themed navigation bar using Bootstrap classes -->
+        <a href="/" class="navbar-brand">
+            <%= heading %>
+                <!-- Displays a dynamic heading passed through EJS templating -->
+        </a>
+    </nav>
+
+    <div class="form wrapper">
+        <!-- A wrapper for the form to align it properly on the page -->
+        <form action="/" method="post">
+            <!-- A form to submit new to-do items, sending data to the server using POST -->
+            <div class="form-group">
+                <!-- A Bootstrap class for form styling -->
+                <input type="text" name="itemName" placeholder="New Item..." class="form-control">
+                <!-- A text input for entering new to-do items, styled with Bootstrap -->
+            </div>
+            <button class="btn btn-primary btn-block">Add Task <i class="fa-solid fa-plus"></i></button>
+            <!-- A button to submit the form, styled with Bootstrap and Font Awesome for the plus icon -->
+        </form>
+    </div>
+
+    <div id="main" class="wrapper">
+        <!-- A wrapper for the main content where the to-do list items will be displayed -->
+        <% if(typeof items==='object' ){ %>
+            <!-- Checks if the `items` variable is an array (server-side check using EJS templating) -->
+            <% items.forEach(function(itemObj){ %>
+                <!-- Loops through each item in the `items` array -->
+                <div class="item">
+                    <!-- A container for each to-do item -->
+                    <h2>
+                        <%= itemObj.name %>
+                            <!-- Displays the current to-do item -->
+                    </h2>
+                    <a href="delete/<%=itemObj._id %>" class="btn btn-link">
+                        <!-- A link to delete the current item, identified by its unique MongoDB `_id` -->
+                        <i class="fa-solid fa-trash delete-icon"></i>
+                        <!-- Trash icon from Font Awesome for the delete button -->
+                    </a>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <!-- If `items` is not an array, display a fallback message -->
+                        <h2>No Items Found</h2>
+                        <% } %>
+    </div>
+
+    <script src="/script.js"></script>
+    <!-- Links to a custom JavaScript file for any client-side functionality -->
+</body>
+
+</html>
+<!-- End of the HTML document -->
