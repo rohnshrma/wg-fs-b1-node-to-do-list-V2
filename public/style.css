@@ -23,8 +23,8 @@ body {
 }
 
 #main {
-  margin: auto;
-  margin-bottom: 4rem;
+  margin: 0 auto 4rem;
+
   width: 40%;
 }
 .item {
@@ -49,7 +49,7 @@ body {
     padding: 1rem;
   }
   #main {
-    margin: auto;
+    margin: 0 auto 4rem;
     width: 80%;
   }
   .form {
