@@ -42,3 +42,17 @@ body {
 .item:last-child {
   border-bottom: 0;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  #main {
+    margin: auto;
+    width: 80%;
+  }
+  .form {
+    margin: 4rem auto;
+    width: 80%;
+  }
+}
