@@ -4,6 +4,8 @@ import express from "express";
 // Import the "body-parser" middleware to parse incoming request bodies.
 import bodyParser from "body-parser";
 
+import { config } from "dotenv";
+
 // Import mongoose to interact with MongoDB, including destructuring the "mongo" object (though it's not used here).
 import mongoose, { mongo } from "mongoose";
 
@@ -13,11 +15,13 @@ const app = express();
 // Define the port number on which the server will listen for requests.
 const port = 3000;
 
+config();
+
 // Function to connect to MongoDB using mongoose asynchronously.
 async function connectDB() {
   try {
-    // Attempt to connect to MongoDB database located at "mongodb://localhost:27017/wgtdlv2DB".
-    const conn = await mongoose.connect("mongodb://localhost:27017/wgtdlv2DB");
+    // Attempt to connect to MongoDB database located at "********".
+    const conn = await mongoose.connect(process.env.MONGO_URI);
     // Log a success message with the host of the MongoDB connection.
     console.log("Connected to DB", conn.connection.host);
   } catch (err) {
