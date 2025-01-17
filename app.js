@@ -70,7 +70,7 @@ app
       res.render("index", {
         title: new Date().toLocaleDateString(), // Today's date as the title.
         heading: "To Do List", // Page heading.
-        items: foundItems.length > 0 ? foundItems : "No Items Found", // Pass the found items or a default message if no items are found.
+        items: foundItems.length > 0 ? foundItems.reverse() : "No Items Found", // Pass the found items or a default message if no items are found.
       });
     } catch (err) {
       // Log an error if something goes wrong during the database query.
