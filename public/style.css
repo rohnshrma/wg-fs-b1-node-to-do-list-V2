@@ -24,6 +24,7 @@ body {
 
 #main {
   margin: auto;
+  margin-bottom: 4rem;
   width: 40%;
 }
 .item {
